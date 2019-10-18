@@ -18,7 +18,17 @@ import javax.swing.*;
 
 final class MySlitherCanvas extends JPanel {
 
-    private static final int[] FIXED_SKIN_COLORS = {0xB87AEC, 0x8E96FA, 0x7FD2CF, 0x8EFF91, 0xFAFD7F, 0xF8A063, 0xEE898A, 0xF6413F, 0xF131F3, 0xFFFFFF};
+    private static final int[] FIXED_SKIN_COLORS = {
+        0xB87AEC, 0x8E96FA, 0x7FD2CF, 0x8EFF91, 0xFAFD7F, 0xF8A063, 0xEE898A, 0xF6413F,
+        0xF131F3, 0xF24040, 0xFFFFFF, 0x4B4B4B, 0xF04940, 0x7385FE, 0xFCFBFC, 0xC489FC,
+        0x8596FF, 0xFEFEFC, 0xF64342, 0xFFFFFD, 0x86FF87, 0x8BFE89, 0xF8AC66, 0x4D5BFB,
+        0x6EF2FC, 0x312A8E, 0x81848B, 0x35AD3E, 0xEBD000, 0x4F4F4F, 0x9EACFA, 0x96A5F8,
+        0x3760F8, 0xF5C462, 0xEB5B50, 0xEC5B50, 0x4B6BF6, 0xF05009, 0xFBE35C, 0x59C7E9,
+        0x43F858, 0xCA3F3E, 0x6EB5B4, 0xD23331, 0x827E79, 0xF64141, 0xF23C3C, 0x5160FF,
+        0xF64A4A, 0x71E0FF, 0xFBEC43, 0xF63F3F, 0xDD3736, 0x19179C, 0x9E1818, 0x84841B,
+        0x804E1E, 0x7C1B7C, 0x1E821A, 0xFCFE48, 0x6E87FF, 0x1C1AA9, 0xB55AFF, 0xF63E3F,
+        0x444EF1
+    };
     private static final Color BACKGROUND_COLOR = new Color(0xCC7832);
     private static final Color FOREGROUND_COLOR = new Color(0xA9B7C6);
     private static final Color SECTOR_COLOR = new Color(0x803C3F41, true);
@@ -199,12 +209,7 @@ final class MySlitherCanvas extends JPanel {
             model.snakes.values().forEach(snake -> {
                 double thickness = 16 + snake.body.size() / 4.0;
                 if (snake.body.size() >= 2) {
-                    Color own_snake_body_color = OWN_SNAKE_BODY_COLOR;
-                    if (MySlitherJFrame.own_snake_skin_index < 9) {
-                        own_snake_body_color = new Color(FIXED_SKIN_COLORS[MySlitherJFrame.own_snake_skin_index]);
-                    } else {
-                        own_snake_body_color = new Color(FIXED_SKIN_COLORS[9]);
-                    }
+                    Color own_snake_body_color = new Color(FIXED_SKIN_COLORS[MySlitherJFrame.own_snake_skin_index]);
                     g.setColor(snake == model.snake ? own_snake_body_color : SNAKE_BODY_COLOR);
                     g.setStroke(new BasicStroke((float) thickness, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
 
