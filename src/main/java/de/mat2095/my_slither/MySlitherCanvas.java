@@ -18,7 +18,7 @@ import javax.swing.*;
 
 final class MySlitherCanvas extends JPanel {
 
-    private static final int[] FIXED_SKIN_COLORS = {0x9000FF, 0x0099FF, 0x00FFFF, 0x1CFC03, 0x1aff00, 0xCC7832, 0xFA8072, 0xFF2F00, 0x5B3256, 0xFFFFFF};
+    private static final int[] FIXED_SKIN_COLORS = {0xB87AEC, 0x8E96FA, 0x7FD2CF, 0x8EFF91, 0xFAFD7F, 0xF8A063, 0xEE898A, 0xF6413F, 0xF131F3, 0xFFFFFF};
     private static final Color BACKGROUND_COLOR = new Color(0xCC7832);
     private static final Color FOREGROUND_COLOR = new Color(0xA9B7C6);
     private static final Color SECTOR_COLOR = new Color(0x803C3F41, true);
