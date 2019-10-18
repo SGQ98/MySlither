@@ -11,7 +11,7 @@ class Food {
     Food(int x, int y, double size, boolean fastSpawn) {
         this.x = x;
         this.y = y;
-        this.size = size;
+        this.size = 4*size;
         this.rsp = fastSpawn ? 4 : 1;
         spawnTime = System.currentTimeMillis();
     }
