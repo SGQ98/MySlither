@@ -590,10 +590,12 @@ final class MySlitherWebSocketClient extends WebSocketClient {
             return;
         }
         for (int i = 8; i < data.length; i += 6) {
+            int color = data[i - 5];
+            System.out.println(color);
             int x = (data[i - 4] << 8) | data[i - 3];
             int z = (data[i - 2] << 8) | data[i - 1];
             double radius = data[i] / 5.0;
-            model.addFood(x, z, radius, fastSpawn); // TODO: now always...
+            model.addFood(color, x, z, radius, fastSpawn); // TODO: now always...
         }
     }
 

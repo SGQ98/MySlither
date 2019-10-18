@@ -18,7 +18,7 @@ import javax.swing.*;
 
 final class MySlitherCanvas extends JPanel {
 
-    private static final int[] FIXED_SKIN_COLORS = {
+    private static final int[] FIXED_COLORS = {
         0xB87AEC, 0x8E96FA, 0x7FD2CF, 0x8EFF91, 0xFAFD7F, 0xF8A063, 0xEE898A, 0xF6413F,
         0xF131F3, 0xF24040, 0xFFFFFF, 0x4B4B4B, 0xF04940, 0x7385FE, 0xFCFBFC, 0xC489FC,
         0x8596FF, 0xFEFEFC, 0xF64342, 0xFFFFFD, 0x86FF87, 0x8BFE89, 0xF8AC66, 0x4D5BFB,
@@ -190,6 +190,7 @@ final class MySlitherCanvas extends JPanel {
             g.setColor(FOOD_COLOR);
             model.foods.values().forEach(food -> {
                 double foodRadius = food.getRadius();
+                g.setColor(new Color(FIXED_COLORS[food.getColor()]));
                 g.fill(new Ellipse2D.Double(food.x - foodRadius, food.y - foodRadius, foodRadius * 2, foodRadius * 2));
             });
 
@@ -209,7 +210,7 @@ final class MySlitherCanvas extends JPanel {
             model.snakes.values().forEach(snake -> {
                 double thickness = 16 + snake.body.size() / 4.0;
                 if (snake.body.size() >= 2) {
-                    Color own_snake_body_color = new Color(FIXED_SKIN_COLORS[MySlitherJFrame.own_snake_skin_index]);
+                    Color own_snake_body_color = new Color(FIXED_COLORS[MySlitherJFrame.own_snake_skin_index]);
                     g.setColor(snake == model.snake ? own_snake_body_color : SNAKE_BODY_COLOR);
                     g.setStroke(new BasicStroke((float) thickness, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
 
