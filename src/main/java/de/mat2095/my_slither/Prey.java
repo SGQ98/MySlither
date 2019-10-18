@@ -13,7 +13,7 @@ class Prey {
     Prey(double x, double y, double size, int dir, double wang, double ang, double sp) {
         this.x = x;
         this.y = y;
-        this.size = size;
+        this.size = 10*size;
         this.dir = dir;
         this.wang = wang;
         this.ang = ang;
