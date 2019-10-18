@@ -87,6 +87,8 @@ final class MySlitherJFrame extends JFrame {
 
     // TODO: skins, prey-size, snake-length/width, bot-layer, that-other-thing(?), show ping
 
+    public static int own_snake_skin_index = 0;
+
     private final JTextField server, name;
     private final JComboBox<String> snake;
     private final JCheckBox useRandomServer;
@@ -295,6 +297,7 @@ final class MySlitherJFrame extends JFrame {
             case CONNECTING:
                 setStatus(Status.CONNECTED);
                 client.sendInitRequest(snake.getSelectedIndex(), name.getText());
+                own_snake_skin_index = snake.getSelectedIndex();
                 break;
             case DISCONNECTING:
                 disconnect();

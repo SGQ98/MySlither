@@ -18,6 +18,7 @@ import javax.swing.*;
 
 final class MySlitherCanvas extends JPanel {
 
+    private static final int[] FIXED_SKIN_COLORS = {0x9000FF, 0x0099FF, 0x00FFFF, 0x1CFC03, 0x1aff00, 0xCC7832, 0xFA8072, 0xFF2F00, 0x5B3256, 0xFFFFFF};
     private static final Color BACKGROUND_COLOR = new Color(0xCC7832);
     private static final Color FOREGROUND_COLOR = new Color(0xA9B7C6);
     private static final Color SECTOR_COLOR = new Color(0x803C3F41, true);
@@ -198,7 +199,13 @@ final class MySlitherCanvas extends JPanel {
             model.snakes.values().forEach(snake -> {
                 double thickness = 16 + snake.body.size() / 4.0;
                 if (snake.body.size() >= 2) {
-                    g.setColor(snake == model.snake ? OWN_SNAKE_BODY_COLOR : SNAKE_BODY_COLOR);
+                    Color own_snake_body_color = OWN_SNAKE_BODY_COLOR;
+                    if (MySlitherJFrame.own_snake_skin_index < 9) {
+                        own_snake_body_color = new Color(FIXED_SKIN_COLORS[MySlitherJFrame.own_snake_skin_index]);
+                    } else {
+                        own_snake_body_color = new Color(FIXED_SKIN_COLORS[9]);
+                    }
+                    g.setColor(snake == model.snake ? own_snake_body_color : SNAKE_BODY_COLOR);
                     g.setStroke(new BasicStroke((float) thickness, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
 
                     double totalLength = 0; // TODO: respect FAM, ???
