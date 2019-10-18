@@ -340,6 +340,10 @@ final class MySlitherJFrame extends JFrame {
                     setStatus(Status.DISCONNECTED);
                     return;
                 }
+            } else if (server.getText().equals("")) {
+                log("Not using random server but no server is specified.");
+                setStatus(Status.DISCONNECTED);
+                return;
             }
 
             if (status == Status.CONNECTING) {
