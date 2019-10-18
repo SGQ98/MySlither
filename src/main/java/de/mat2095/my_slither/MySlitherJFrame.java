@@ -241,12 +241,12 @@ final class MySlitherJFrame extends JFrame {
             }
         });
 
-        highscoreList = new JTable(10, 2);
+        highscoreList = new JTable(11, 2);
         highscoreList.setEnabled(false);
         highscoreList.getColumnModel().getColumn(0).setMinWidth(64);
         highscoreList.getColumnModel().getColumn(1).setMinWidth(192);
-        highscoreList.getColumnModel().getColumn(0).setHeaderValue("length");
-        highscoreList.getColumnModel().getColumn(1).setHeaderValue("name");
+        highscoreList.getColumnModel().getColumn(0).setHeaderValue("Length");
+        highscoreList.getColumnModel().getColumn(1).setHeaderValue("Name");
         highscoreList.getTableHeader().setReorderingAllowed(false);
         DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
         rightRenderer.setHorizontalAlignment(SwingConstants.RIGHT);

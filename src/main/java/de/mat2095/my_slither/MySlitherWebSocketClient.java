@@ -433,6 +433,10 @@ final class MySlitherWebSocketClient extends WebSocketClient {
             rank++;
             view.setHighscoreData(rank - 1, name.toString(), model.getSnakeLength(bodyLength, fillAnount), ownRank == rank);
         }
+        if (ownRank > 10) {
+            double totalLength = model.getSnakeLength(model.snake.body.size(), model.snake.getFam());
+            view.setHighscoreData(rank, model.snake.name + " (Rank: " + ownRank + ")", (int) totalLength, true);
+        }
     }
 
     private void processDead(int[] data) {
