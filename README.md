@@ -2,7 +2,7 @@
 A Java implementation of the [slither.io](https://slither.io) client.
 
 ### Features / Screenshots
-![ScreenShot](./screenshot1.png)
+![ScreenShot](https://raw.githubusercontent.com/SGQ98/MySlither/master/Screenshot1.png)
 
 ### Future Features
 - correct snake-thickness
